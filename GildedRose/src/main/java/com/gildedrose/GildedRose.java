@@ -24,28 +24,6 @@ class GildedRose {
                     item.quality = item.quality - 1;
                 }
             }
-        } else {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-
-                if (item.name.equals(TAFKAL80ETC)) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (!item.name.equals(Sulfuras)) {
-            item.sellIn = item.sellIn - 1;
         }
 
         if (item.sellIn < 0) {
@@ -65,5 +43,9 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    public static void Sulfuras(Item item) {
+
     }
 }
