@@ -5,12 +5,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
+    private static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    private static final String NORMAL_ITEM = "Item";
 
     @Test
     void AgedBrie() {
         Item[] items = new Item[] {
-                new Item("Aged Brie", 10, 40),
-                new Item("Aged Brie", 0, 40)
+                new AgedBrie(AGED_BRIE, 10, 40),
+                new AgedBrie(AGED_BRIE, 0, 40)
         };
 
         GildedRose app = new GildedRose(items);
@@ -27,8 +31,8 @@ class GildedRoseTest {
     @Test
     void Sulfuras() {
         Item[] items = new Item[] {
-                new Item("Sulfuras, Hand of Ragnaros", 10, 40),
-                new Item("Sulfuras, Hand of Ragnaros", 0, 40)
+                new Sulfuras(SULFURAS, 10, 40),
+                new Sulfuras(SULFURAS, 0, 40)
         };
 
         GildedRose app = new GildedRose(items);
@@ -45,9 +49,9 @@ class GildedRoseTest {
     @Test
     void TAFKAL80ETC() {
         Item[] items = new Item[] {
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 40),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 40),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)
+                new Backstage(BACKSTAGE, 10, 40),
+                new Backstage(BACKSTAGE, 5, 40),
+                new Backstage(BACKSTAGE, 0, 40)
         };
 
         GildedRose app = new GildedRose(items);
@@ -67,8 +71,8 @@ class GildedRoseTest {
     @Test
     void randomString() {
         Item[] items = new Item[] {
-                new Item("foo", 10, 40),
-                new Item("Bonjour", 0, 40)
+                new NormalItem(NORMAL_ITEM, 10, 40),
+                new NormalItem(NORMAL_ITEM, 0, 40)
         };
 
         GildedRose app = new GildedRose(items);
