@@ -18,56 +18,57 @@ class GildedRose {
     }
 
     private static void handleItem(Item item) {
-        if (item.name.equals(Sulfuras)) {
-            handleSulfuras(item);
-        } else if (item.name.equals(TAFKAL80ETC)) {
-            handleTAFKAL80ETC(item);
-        } else if (item.name.equals(AgedBrie)) {
-            handleAgedBrie(item);
-        } else {
-            handleNormalItem(item);
+        switch (item.name) {
+            case Sulfuras:
+                break;
+            case TAFKAL80ETC:
+                handleTAFKAL80ETC(item);
+                break;
+            case AgedBrie:
+                handleAgedBrie(item);
+                break;
+            default:
+                handleNormalItem(item);
+                break;
         }
-
-        if (!item.name.equals(AgedBrie) && !item.name.equals(TAFKAL80ETC)) {
-            if (item.quality > 0) {
-                if (!item.name.equals(Sulfuras)) {
-                    item.quality = item.quality - 1;
-                }
-            }
-        }
-
-        if (item.sellIn < 0) {
-            if (!item.name.equals(AgedBrie)) {
-                if (!item.name.equals(TAFKAL80ETC)) {
-                    if (item.quality > 0) {
-                        if (!item.name.equals(Sulfuras)) {
-                            item.quality = item.quality - 1;
-                        }
-                    }
-                } else {
-                    item.quality = item.quality - item.quality;
-                }
-            } else {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
-        }
-    }
-
-    public static void handleSulfuras(Item item) {
-
     }
 
     private static void handleTAFKAL80ETC(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+
+            if (item.sellIn < 11)
+                item.quality = item.quality + 1;
+
+            if (item.sellIn < 6)
+                item.quality = item.quality + 1;
+        }
+
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0)
+            item.quality = 0;
 
     }
 
     private static void handleAgedBrie(Item item) {
+        if (item.quality < 50)
+            item.quality = item.quality + 1;
 
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0 && item.quality < 50)
+            item.quality = item.quality + 1;
     }
 
     private static void handleNormalItem(Item item) {
+        if (item.quality > 0)
+            item.quality = item.quality - 1;
 
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0 && item.quality > 0)
+            item.quality = item.quality - 1;
     }
 }
+
