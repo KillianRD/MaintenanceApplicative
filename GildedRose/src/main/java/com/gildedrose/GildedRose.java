@@ -18,6 +18,16 @@ class GildedRose {
     }
 
     private static void handleItem(Item item) {
+        if (item.name.equals(Sulfuras)) {
+            handleSulfuras(item);
+        } else if (item.name.equals(TAFKAL80ETC)) {
+            handleTAFKAL80ETC(item);
+        } else if (item.name.equals(AgedBrie)) {
+            handleAgedBrie(item);
+        } else {
+            handleNormalItem(item);
+        }
+
         if (!item.name.equals(AgedBrie) && !item.name.equals(TAFKAL80ETC)) {
             if (item.quality > 0) {
                 if (!item.name.equals(Sulfuras)) {
@@ -45,7 +55,19 @@ class GildedRose {
         }
     }
 
-    public static void Sulfuras(Item item) {
+    public static void handleSulfuras(Item item) {
+
+    }
+
+    private static void handleTAFKAL80ETC(Item item) {
+
+    }
+
+    private static void handleAgedBrie(Item item) {
+
+    }
+
+    private static void handleNormalItem(Item item) {
 
     }
 }
