@@ -27,19 +27,19 @@ class GildedRoseTest {
     @Test
     void Sulfuras() {
         Item[] items = new Item[] {
-                new Item("Sulfuras", 10, 40),
-                new Item("Sulfuras", 0, 40)
+                new Item("Sulfuras, Hand of Ragnaros", 10, 40),
+                new Item("Sulfuras, Hand of Ragnaros", 0, 40)
         };
 
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
 
-        assertEquals(39, app.items[0].quality);
-        assertEquals(9, app.items[0].sellIn);
+        assertEquals(40, app.items[0].quality);
+        assertEquals(10, app.items[0].sellIn);
 
-        assertEquals(38, app.items[1].quality);
-        assertEquals(-1, app.items[1].sellIn);
+        assertEquals(40, app.items[1].quality);
+        assertEquals(0, app.items[1].sellIn);
     }
 
     @Test
