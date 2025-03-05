@@ -47,7 +47,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void TAFKAL80ETC() {
+    void Backstage() {
         Item[] items = new Item[] {
                 new Backstage(BACKSTAGE, 10, 40),
                 new Backstage(BACKSTAGE, 5, 40),
