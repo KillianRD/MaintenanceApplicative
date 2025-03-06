@@ -8,16 +8,16 @@ public class Backstage extends Item{
     @Override
     public void updateItem() {
         if (quality < 50) {
-            quality = quality + 1;
+            quality++;
 
             if (sellIn < 11)
-                quality = quality + 1;
+                quality++;
 
             if (sellIn < 6)
                 quality = quality + 1;
         }
 
-        sellIn = sellIn - 1;
+        sellIn--;
 
         if (sellIn < 0)
             quality = 0;
