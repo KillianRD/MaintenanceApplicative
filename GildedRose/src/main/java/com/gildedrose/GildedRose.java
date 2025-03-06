@@ -9,12 +9,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            handleItem(item);
+            item.updateItem();
         }
-    }
-
-    private static void handleItem(Item item) {
-        item.updateItem();
     }
 }
 
