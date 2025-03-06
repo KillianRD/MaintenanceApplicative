@@ -1,10 +1,26 @@
 package trivia;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 // REFACTOR ME
 public class Game implements IGame {
+   private static final Map<Integer, String> CATEGORY_MAP = new HashMap<>();
+
+   static {
+      CATEGORY_MAP.put(0, "Pop");
+      CATEGORY_MAP.put(4, "Pop");
+      CATEGORY_MAP.put(8, "Pop");
+      CATEGORY_MAP.put(1, "Science");
+      CATEGORY_MAP.put(5, "Science");
+      CATEGORY_MAP.put(9, "Science");
+      CATEGORY_MAP.put(2, "Sports");
+      CATEGORY_MAP.put(6, "Sports");
+      CATEGORY_MAP.put(10, "Sports");
+   }
+
    ArrayList<String> players = new ArrayList<>();
    int[] places = new int[6];
    int[] purses = new int[6];
@@ -105,16 +121,7 @@ public class Game implements IGame {
 
 
    private String currentCategory() {
-      if (places[currentPlayer] - 1 == 0) return "Pop";
-      if (places[currentPlayer] - 1 == 4) return "Pop";
-      if (places[currentPlayer] - 1 == 8) return "Pop";
-      if (places[currentPlayer] - 1 == 1) return "Science";
-      if (places[currentPlayer] - 1 == 5) return "Science";
-      if (places[currentPlayer] - 1 == 9) return "Science";
-      if (places[currentPlayer] - 1 == 2) return "Sports";
-      if (places[currentPlayer] - 1 == 6) return "Sports";
-      if (places[currentPlayer] - 1 == 10) return "Sports";
-      return "Rock";
+      return CATEGORY_MAP.getOrDefault(places[currentPlayer] - 1, "Rock");
    }
 
    public boolean handleCorrectAnswer() {
