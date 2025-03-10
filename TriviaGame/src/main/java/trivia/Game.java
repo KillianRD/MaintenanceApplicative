@@ -1,6 +1,9 @@
 package trivia;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 // REFACTOR ME
 public class Game implements IGame {
@@ -127,5 +130,12 @@ public class Game implements IGame {
 
     private boolean didPlayerWin() {
         return currentPlayer().getPurse() != WINNER_SCORE;
+    }
+
+    public Player getPlayer(String name) {
+        for (Player p : players) {
+            if(p.getName().equals(name)) return p;
+        }
+        return null;
     }
 }
