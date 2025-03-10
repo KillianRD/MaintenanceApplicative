@@ -1,5 +1,7 @@
 package trivia;
 
+import static trivia.Game.nbCases;
+
 public class Player {
 
     private final String name;
@@ -25,7 +27,8 @@ public class Player {
     }
 
     public void move(int roll) {
-        place = (place + roll) % 12;
+        place = place + roll;
+        if(place > nbCases) place -= nbCases;
     }
 
     public void incrementPurse() {

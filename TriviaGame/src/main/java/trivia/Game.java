@@ -4,10 +4,12 @@ import java.util.*;
 
 // REFACTOR ME
 public class Game implements IGame {
+    public static final int nbCases = 12;
+
     private static final Categories[] CATEGORIES = Categories.values();
 
-    private ArrayList<Player> players;
-    private Map<Categories, Deque<String>> questions = new EnumMap<>(Categories.class);
+    private ArrayList<Player> players = new ArrayList<>();
+    private Map<Categories, LinkedList<String>> questions = new EnumMap<>(Categories.class);
     private int currentPlayerIndex = 0;
     private boolean isGettingOutOfPenaltyBox;
 
@@ -15,7 +17,9 @@ public class Game implements IGame {
         for (Categories category : CATEGORIES) {
             questions.put(category, new LinkedList<>());
 
-            questions.get(category).addLast(category + " Question ");
+            for (int i = 0; i < 50; i++) {
+                questions.get(category).addLast(category + " Question " + i);
+            }
         }
     }
 
@@ -45,12 +49,10 @@ public class Game implements IGame {
                 System.out.println(player.getName() + " is not getting out of the penalty box");
                 isGettingOutOfPenaltyBox = false;
             }
-
         } else {
             movePlayer(player, roll);
             askQuestion();
         }
-
     }
 
     public void movePlayer(Player player, int roll) {
@@ -62,7 +64,6 @@ public class Game implements IGame {
     private void askQuestion() {
         System.out.println(questions.get(currentCategory()).removeFirst());
     }
-
 
     private Categories currentCategory() {
         return CATEGORIES[(currentPlayer().getPlace() - 1) % CATEGORIES.length];
