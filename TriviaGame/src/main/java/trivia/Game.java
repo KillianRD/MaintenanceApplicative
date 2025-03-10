@@ -9,6 +9,10 @@ import java.util.Map;
 public class Game implements IGame {
     public static final int NB_CASES = 12;
     public static final int WINNER_SCORE = 6;
+    public static final int MIN_PLAYER = 2;
+    public static final int MAX_PLAYER = 6;
+
+    public static boolean gameStarted = false;
 
     private static final Categories[] CATEGORIES = Categories.values();
 
@@ -28,22 +32,28 @@ public class Game implements IGame {
     }
 
     public boolean canStart() {
-        return players.size() >= 2;
+        return players.size() >= MIN_PLAYER;
     }
 
     public boolean add(String playerName) {
-        if (players.size() < 6) {
+        if (gameStarted) {
+            System.out.println("You can't add a player after the start of the game");
+            return false;
+        }
+
+        if (players.size() < MAX_PLAYER) {
             players.add(new Player(playerName));
             System.out.println(playerName + " was added");
             System.out.println("They are player number " + players.size());
             return true;
+        } else {
+            System.out.println("Too much players in the game (Maximum 6)");
+            return false;
         }
-
-        System.out.println("Too much players in the game (Maximum 6)");
-        return false;
     }
 
     public void roll(int roll) {
+        gameStarted = true;
         Player player = currentPlayer();
         System.out.println(player.getName() + " is the current player");
         System.out.println("They have rolled a " + roll);
@@ -117,5 +127,9 @@ public class Game implements IGame {
 
     private boolean didPlayerWin() {
         return currentPlayer().getPurse() != WINNER_SCORE;
+    }
+
+    public boolean isGameStarted() {
+        return gameStarted;
     }
 }
