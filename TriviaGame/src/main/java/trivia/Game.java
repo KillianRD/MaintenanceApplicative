@@ -1,6 +1,9 @@
 package trivia;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 // REFACTOR ME
 public class Game implements IGame {
@@ -24,11 +27,20 @@ public class Game implements IGame {
         }
     }
 
+    public boolean canStart() {
+        return players.size() >= 2;
+    }
+
     public boolean add(String playerName) {
-        players.add(new Player(playerName));
-        System.out.println(playerName + " was added");
-        System.out.println("They are player number " + players.size());
-        return true;
+        if (players.size() < 6) {
+            players.add(new Player(playerName));
+            System.out.println(playerName + " was added");
+            System.out.println("They are player number " + players.size());
+            return true;
+        }
+
+        System.out.println("Too much players in the game (Maximum 6)");
+        return false;
     }
 
     public void roll(int roll) {

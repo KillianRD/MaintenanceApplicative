@@ -1,10 +1,12 @@
 package trivia;
 
-public enum Categories {
+enum Categories {
     POP("Pop"),
     SCIENCE("Science"),
     SPORTS("Sports"),
-    ROCK("Rock");
+    ROCK("Rock"),
+    GEOGRAPHIE("Géogrephie"),
+    ;
 
     private final String stringValue;
 

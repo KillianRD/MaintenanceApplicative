@@ -36,6 +36,11 @@ public class GameOld implements IGame {
       return (howManyPlayers() >= 2);
    }
 
+   @Override
+   public boolean canStart() {
+      return isPlayable();
+   }
+
    public boolean add(String playerName) {
       places[howManyPlayers()] = 1;
       purses[howManyPlayers()] = 0;
