@@ -3,6 +3,7 @@ package trivia;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -47,7 +48,7 @@ public class GameTest {
     @Test
     @DisplayName("Ajouter des joueurs après le début de la partie")
     public void ajoutApresDebutPartie() {
-		IGame game = new Game();
+        IGame game = new Game();
         assertTrue(game.add("Killian"));
         assertTrue(game.add("Célèna"));
         assertTrue(game.canStart());
@@ -57,6 +58,11 @@ public class GameTest {
 
     @Test
     @DisplayName("Ajout de 2 joueurs avec le meme nom")
+    public void ajout2JoueurMemeNom() {
+        IGame game = new Game();
+        assertTrue(game.add("Killian"));
+        assertFalse(game.add("Killian"));
+    }
 
     private String extractOutput(Random rand, IGame aGame) {
         PrintStream old = System.out;

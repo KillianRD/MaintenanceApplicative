@@ -1,9 +1,6 @@
 package trivia;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 // REFACTOR ME
 public class Game implements IGame {
@@ -12,7 +9,7 @@ public class Game implements IGame {
     public static final int MIN_PLAYER = 2;
     public static final int MAX_PLAYER = 6;
 
-    public static boolean gameStarted = false;
+    public boolean gameStarted = false;
 
     private static final Categories[] CATEGORIES = Categories.values();
 
@@ -42,6 +39,9 @@ public class Game implements IGame {
         }
 
         if (players.size() < MAX_PLAYER) {
+            if (players.contains(new Player(playerName))) {
+                return false;
+            }
             players.add(new Player(playerName));
             System.out.println(playerName + " was added");
             System.out.println("They are player number " + players.size());
@@ -127,9 +127,5 @@ public class Game implements IGame {
 
     private boolean didPlayerWin() {
         return currentPlayer().getPurse() != WINNER_SCORE;
-    }
-
-    public boolean isGameStarted() {
-        return gameStarted;
     }
 }
