@@ -1,6 +1,6 @@
 package trivia;
 
-import static trivia.Game.nbCases;
+import static trivia.Game.NB_CASES;
 
 public class Player {
 
@@ -28,7 +28,7 @@ public class Player {
 
     public void move(int roll) {
         place = place + roll;
-        if(place > nbCases) place -= nbCases;
+        if(place > NB_CASES) place -= NB_CASES;
     }
 
     public void incrementPurse() {

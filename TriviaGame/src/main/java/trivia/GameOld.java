@@ -123,6 +123,7 @@ public class GameOld implements IGame {
                                + " Gold Coins.");
 
             boolean winner = didPlayerWin();
+            inPenaltyBox[currentPlayer] = false;
             currentPlayer++;
             if (currentPlayer == players.size()) currentPlayer = 0;
 

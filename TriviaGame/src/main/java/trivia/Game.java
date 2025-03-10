@@ -4,12 +4,13 @@ import java.util.*;
 
 // REFACTOR ME
 public class Game implements IGame {
-    public static final int nbCases = 12;
+    public static final int NB_CASES = 12;
+    public static final int WINNER_SCORE = 6;
 
     private static final Categories[] CATEGORIES = Categories.values();
 
-    private ArrayList<Player> players = new ArrayList<>();
-    private Map<Categories, LinkedList<String>> questions = new EnumMap<>(Categories.class);
+    private final ArrayList<Player> players = new ArrayList<>();
+    private final Map<Categories, LinkedList<String>> questions = new EnumMap<>(Categories.class);
     private int currentPlayerIndex = 0;
     private boolean isGettingOutOfPenaltyBox;
 
@@ -28,10 +29,6 @@ public class Game implements IGame {
         System.out.println(playerName + " was added");
         System.out.println("They are player number " + players.size());
         return true;
-    }
-
-    public int howManyPlayers() {
-        return players.size();
     }
 
     public void roll(int roll) {
@@ -55,18 +52,8 @@ public class Game implements IGame {
         }
     }
 
-    public void movePlayer(Player player, int roll) {
-        player.move(roll);
-        System.out.println(player.getName() + "'s new location is " + player.getPlace());
-        System.out.println("The category is " + currentCategory());
-    }
-
     private void askQuestion() {
         System.out.println(questions.get(currentCategory()).removeFirst());
-    }
-
-    private Categories currentCategory() {
-        return CATEGORIES[(currentPlayer().getPlace() - 1) % CATEGORIES.length];
     }
 
     public boolean handleCorrectAnswer() {
@@ -77,8 +64,9 @@ public class Game implements IGame {
         }
 
         System.out.println("Answer was correct!!!!");
-        currentPlayer().incrementPurse();
-        System.out.println(currentPlayer().getName() + " now has " + currentPlayer().getPurse() + " Gold Coins.");
+        player.incrementPurse();
+        player.setInPenaltyBox(false);
+        System.out.println(player.getName() + " now has " + player.getPurse() + " Gold Coins.");
 
         boolean winner = didPlayerWin();
         nextPlayer();
@@ -97,6 +85,12 @@ public class Game implements IGame {
         return true;
     }
 
+    public void movePlayer(Player player, int roll) {
+        player.move(roll);
+        System.out.println(player.getName() + "'s new location is " + player.getPlace());
+        System.out.println("The category is " + currentCategory());
+    }
+
     public void nextPlayer() {
         currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
     }
@@ -105,8 +99,11 @@ public class Game implements IGame {
         return players.get(currentPlayerIndex);
     }
 
+    private Categories currentCategory() {
+        return CATEGORIES[(currentPlayer().getPlace() - 1) % CATEGORIES.length];
+    }
 
     private boolean didPlayerWin() {
-        return currentPlayer().getPurse() != 6;
+        return currentPlayer().getPurse() != WINNER_SCORE;
     }
 }
