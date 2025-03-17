@@ -23,11 +23,7 @@ public class Game implements IGame {
 
     public Game() {
         for (Categories category : CATEGORIES) {
-            questions.put(category, new LinkedList<>());
-
-            for (int i = 0; i < 50; i++) {
-                questions.get(category).addLast(category + " Question " + i);
-            }
+            questions.put(category, category.getQuestions());
         }
     }
 

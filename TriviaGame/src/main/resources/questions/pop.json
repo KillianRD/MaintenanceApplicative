@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "question": "Michael Jackson est surnommé le King of Rock.",
+      "answer": false
+    },
+    {
+      "question": "Le film 'Titanic' a été réalisé par James Cameron.",
+      "answer": true
+    },
+    {
+      "question": "Le groupe The Beatles est originaire des États-Unis.",
+      "answer": false
+    },
+    {
+      "question": "La chanson 'Shape of You' a été interprétée par Ed Sheeran.",
+      "answer": true
+    },
+    {
+      "question": "Lady Gaga a joué dans le film 'A Star is Born'.",
+      "answer": true
+    },
+    {
+      "question": "Le personnage de Harry Potter a été créé par J.R.R. Tolkien.",
+      "answer": false
+    },
+    {
+      "question": "Le film 'Avatar' se déroule sur la planète Pandora.",
+      "answer": true
+    },
+    {
+      "question": "Le personnage de James Bond a été créé par l’écrivain Agatha Christie.",
+      "answer": false
+    },
+    {
+      "question": "Le film 'Jurassic Park' a été réalisé par Steven Spielberg.",
+      "answer": true
+    },
+    {
+      "question": "Beyoncé fait partie du groupe Destiny's Child.",
+      "answer": true
+    },
+    {
+      "question": "La série 'Stranger Things' se déroule dans les années 2000.",
+      "answer": false
+    },
+    {
+      "question": "Le personnage de Thor fait partie de l’univers Marvel.",
+      "answer": true
+    },
+    {
+      "question": "L’album 'Thriller' de Michael Jackson est le plus vendu de tous les temps.",
+      "answer": true
+    },
+    {
+      "question": "Le film 'The Godfather' a été réalisé par Quentin Tarantino.",
+      "answer": false
+    },
+    {
+      "question": "La série 'Friends' se déroule à New York.",
+      "answer": true
+    },
+    {
+      "question": "Le film 'Inception' a été réalisé par Martin Scorsese.",
+      "answer": false
+    },
+    {
+      "question": "Kanye West a changé son nom en Ye.",
+      "answer": true
+    },
+    {
+      "question": "La saga 'Star Wars' a été créée par Steven Spielberg.",
+      "answer": false
+    },
+    {
+      "question": "La chanson 'Rolling in the Deep' est chantée par Adele.",
+      "answer": true
+    },
+    {
+      "question": "La série 'The Crown' raconte la vie de Winston Churchill.",
+      "answer": false
+    }
+  ]
+}

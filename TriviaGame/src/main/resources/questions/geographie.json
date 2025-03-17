@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "question": "L’Australie est le plus grand pays du monde.",
+      "answer": false
+    },
+    {
+      "question": "La capitale du Canada est Toronto.",
+      "answer": false
+    },
+    {
+      "question": "L’Équateur traverse l’Afrique.",
+      "answer": true
+    },
+    {
+      "question": "Le mont Everest est le plus haut sommet du monde.",
+      "answer": true
+    },
+    {
+      "question": "Le Nil est le plus long fleuve du monde.",
+      "answer": true
+    },
+    {
+      "question": "La Russie est située sur deux continents.",
+      "answer": true
+    },
+    {
+      "question": "Madagascar est un pays d’Asie.",
+      "answer": false
+    },
+    {
+      "question": "Le désert du Sahara est le plus grand désert du monde.",
+      "answer": false
+    },
+    {
+      "question": "La France a une frontière avec le Brésil.",
+      "answer": true
+    },
+    {
+      "question": "La mer Méditerranée borde l’Argentine.",
+      "answer": false
+    },
+    {
+      "question": "La Chine est le pays le plus peuplé du monde.",
+      "answer": true
+    },
+    {
+      "question": "L’Alaska est un état du Canada.",
+      "answer": false
+    },
+    {
+      "question": "La Suisse a une côte maritime.",
+      "answer": false
+    },
+    {
+      "question": "Le Vatican est le plus petit pays du monde.",
+      "answer": true
+    },
+    {
+      "question": "L’Antarctique est un continent habité en permanence.",
+      "answer": false
+    },
+    {
+      "question": "L’Amazonie est une région située uniquement au Brésil.",
+      "answer": false
+    },
+    {
+      "question": "Le Groenland fait partie du Danemark.",
+      "answer": true
+    },
+    {
+      "question": "Le Japon est un archipel.",
+      "answer": true
+    },
+    {
+      "question": "Le lac Baïkal est le plus profond du monde.",
+      "answer": true
+    },
+    {
+      "question": "L’océan Atlantique est le plus grand océan du monde.",
+      "answer": false
+    }
+  ]
+}
