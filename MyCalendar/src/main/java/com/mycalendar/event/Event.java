@@ -1,19 +1,22 @@
 package com.mycalendar.event;
 
-import java.time.LocalDateTime;
+import com.mycalendar.main.Date;
+import com.mycalendar.main.DureeEvent;
+import com.mycalendar.main.Proprietaire;
+import com.mycalendar.main.Titre;
 
 public abstract class Event {
     protected EventType type;
-    protected String title;
-    protected String proprietaire;
-    protected LocalDateTime dateDebut;
-    protected int dureeMinutes;
+    protected Titre title;
+    protected Proprietaire proprietaire;
+    protected Date date;
+    protected DureeEvent dureeMinutes;
 
-    public Event(EventType type, String title, String proprietaire, LocalDateTime dateDebut, int dureeMinutes) {
+    public Event(EventType type, Titre title, Proprietaire proprietaire, Date date, DureeEvent dureeMinutes) {
         this.type = type;
         this.title = title;
         this.proprietaire = proprietaire;
-        this.dateDebut = dateDebut;
+        this.date = date;
         this.dureeMinutes = dureeMinutes;
     }
 
