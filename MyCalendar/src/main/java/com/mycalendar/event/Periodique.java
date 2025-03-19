@@ -1,12 +1,15 @@
 package com.mycalendar.event;
 
-import java.time.LocalDateTime;
+import com.mycalendar.main.Date;
+import com.mycalendar.main.DureeEvent;
+import com.mycalendar.main.Proprietaire;
+import com.mycalendar.main.Titre;
 
 public class Periodique extends Event {
     private final int frequenceJours;
 
-    public Periodique(String title, String proprietaire, LocalDateTime dateDebut, int dureeMinutes, int frequenceJours) {
-        super(EventType.PERIODIQUE, title, proprietaire, dateDebut, dureeMinutes);
+    public Periodique(Titre title, Proprietaire proprietaire, Date date, DureeEvent dureeMinutes, int frequenceJours) {
+        super(EventType.PERIODIQUE, title, proprietaire, date, dureeMinutes);
 
         this.frequenceJours = frequenceJours;
     }
