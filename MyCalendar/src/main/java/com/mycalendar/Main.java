@@ -1,7 +1,14 @@
 package com.mycalendar;
 
+import com.mycalendar.event.Periodique;
+import com.mycalendar.event.RdvPersonnel;
+import com.mycalendar.event.Reunion;
+import com.mycalendar.main.*;
+import com.mycalendar.event.Event;
+
 import java.time.LocalDateTime;
 import java.time.temporal.WeekFields;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,28 +20,14 @@ public class Main {
         String utilisateur = null;
         boolean continuer = true;
 
-        String utilisateurs[] = new String[99];
-        String motsDePasses[] = new String[99];
+        String[] utilisateurs = new String[99];
+        String[] motsDePasses = new String[99];
         int nbUtilisateurs = 0;
 
         while (true) {
 
             if (utilisateur == null) {
-                System.out.println("  _____         _                   _                __  __");
-                System.out.println(" / ____|       | |                 | |              |  \\/  |");
-                System.out.println(
-                        "| |       __ _ | |  ___  _ __    __| |  __ _  _ __  | \\  / |  __ _  _ __    __ _   __ _   ___  _ __");
-                System.out.println(
-                        "| |      / _` || | / _ \\| '_ \\  / _` | / _` || '__| | |\\/| | / _` || '_ \\  / _` | / _` | / _ \\| '__|");
-                System.out.println(
-                        "| |____ | (_| || ||  __/| | | || (_| || (_| || |    | |  | || (_| || | | || (_| || (_| ||  __/| |");
-                System.out.println(
-                        " \\_____| \\__,_||_| \\___||_| |_| \\__,_| \\__,_||_|    |_|  |_| \\__,_||_| |_| \\__,_| \\__, | \\___||_|");
-                System.out.println(
-                        "                                                                                   __/ |");
-                System.out.println(
-                        "                                                                                  |___/");
-
+                System.out.println(AsciiManager.generateLogo());
                 System.out.println("1 - Se connecter");
                 System.out.println("2 - Créer un compte");
                 System.out.println("Choix : ");
@@ -176,9 +169,14 @@ public class Main {
                         System.out.print("Durée (en minutes) : ");
                         int duree = Integer.parseInt(scanner.nextLine());
 
-                        calendar.ajouterEvent("RDV_PERSONNEL", titre, utilisateur,
-                                LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute), duree,
-                                "", "", 0);
+                        calendar.ajouterEvent(
+                                new RdvPersonnel(
+                                        new Titre(titre),
+                                        new Proprietaire(utilisateur),
+                                        new Date(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute), duree),
+                                        new DureeEvent(duree)
+                                )
+                        );
 
                         System.out.println("Événement ajouté.");
                         break;
@@ -212,9 +210,16 @@ public class Main {
                             participants += ", " + scanner.nextLine();
                         }
 
-                        calendar.ajouterEvent("REUNION", titre2, utilisateur,
-                                LocalDateTime.of(annee2, moisRdv2, jourRdv2, heure2, minute2), duree2,
-                                lieu, participants, 0);
+                        calendar.ajouterEvent(
+                                new Reunion(
+                                        new Titre(titre2),
+                                        new Proprietaire(utilisateur),
+                                        new Date(LocalDateTime.of(annee2, moisRdv2, jourRdv2, heure2, minute2), duree2),
+                                        new DureeEvent(duree2),
+                                        lieu,
+                                        Collections.singletonList(participants)
+                                )
+                        );
 
                         System.out.println("Événement ajouté.");
                         break;
@@ -236,9 +241,15 @@ public class Main {
                         System.out.print("Frequence (en jours) : ");
                         int frequence = Integer.parseInt(scanner.nextLine());
 
-                        calendar.ajouterEvent("PERIODIQUE", titre3, utilisateur,
-                                LocalDateTime.of(annee3, moisRdv3, jourRdv3, heure3, minute3), 0,
-                                "", "", frequence);
+                        calendar.ajouterEvent(
+                                new Periodique(
+                                        new Titre(titre3),
+                                        new Proprietaire(utilisateur),
+                                        new Date(LocalDateTime.of(annee3, moisRdv3, jourRdv3, heure3, minute3), 0),
+                                        new DureeEvent(0),
+                                        frequence
+                                )
+                        );
 
                         System.out.println("Événement ajouté.");
                         break;
