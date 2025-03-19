@@ -5,6 +5,7 @@ import com.mycalendar.main.DureeEvent;
 import com.mycalendar.main.Proprietaire;
 import com.mycalendar.main.Titre;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Reunion extends Event {
@@ -22,5 +23,15 @@ public class Reunion extends Event {
     public String description() {
         return "Réunion : " + title + " à " + lieu + " avec "
                 + String.join(", ", participants);
+    }
+
+    @Override
+    public boolean estDansPeriode(LocalDateTime debut, LocalDateTime fin) {
+        return !date.start().isBefore(debut) && !date.start().isAfter(fin);
+    }
+
+    @Override
+    public boolean conflitAvec(Event autre) {
+        return date.start().isBefore(autre.getDate().end()) && date.end().isAfter(autre.getDate().start());
     }
 }
