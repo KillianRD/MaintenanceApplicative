@@ -1,28 +1,21 @@
-package com.mycalendar.event;
+package com.mycalendar.model;
 
+import com.mycalendar.event.EventType;
 import com.mycalendar.main.Date;
 import com.mycalendar.main.DureeEvent;
 import com.mycalendar.main.Proprietaire;
 import com.mycalendar.main.Titre;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-public class Reunion extends Event {
-    private String lieu;
-    private List<String> participants;
-
-    public Reunion(Titre title, Proprietaire proprietaire, Date date, DureeEvent dureeMinutes, String lieu, List<String> participants) {
-        super(EventType.REUNION, title, proprietaire, date, dureeMinutes);
-
-        this.lieu = lieu;
-        this.participants = participants;
+public class RdvPersonnel extends Event {
+    public RdvPersonnel(Titre title, Proprietaire proprietaire, Date date, DureeEvent dureeMinutes) {
+        super(EventType.RDV_PERSONNEL, title, proprietaire, date, dureeMinutes);
     }
 
     @Override
     public String description() {
-        return "Réunion : " + title + " à " + lieu + " avec "
-                + String.join(", ", participants);
+        return "RDV : " + title + " à " + date.start().toString();
     }
 
     @Override

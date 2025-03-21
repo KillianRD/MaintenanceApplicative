@@ -1,5 +1,6 @@
-package com.mycalendar.event;
+package com.mycalendar.model;
 
+import com.mycalendar.event.EventType;
 import com.mycalendar.main.Date;
 import com.mycalendar.main.DureeEvent;
 import com.mycalendar.main.Proprietaire;
