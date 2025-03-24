@@ -1,10 +1,10 @@
 package com.mycalendar.model;
 
-import com.mycalendar.event.EventType;
-import com.mycalendar.main.Date;
-import com.mycalendar.main.DureeEvent;
-import com.mycalendar.main.Proprietaire;
-import com.mycalendar.main.Titre;
+import com.mycalendar.model.main.EventType;
+import com.mycalendar.model.main.Date;
+import com.mycalendar.model.main.DureeEvent;
+import com.mycalendar.model.main.Proprietaire;
+import com.mycalendar.model.main.Titre;
 
 import java.time.LocalDateTime;
 
