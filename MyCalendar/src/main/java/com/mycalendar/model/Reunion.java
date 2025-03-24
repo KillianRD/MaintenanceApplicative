@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Reunion extends Event {
-    private String lieu;
-    private List<String> participants;
+    private final String lieu;
+    private final List<String> participants;
 
     public Reunion(Titre title, Proprietaire proprietaire, Date date, DureeEvent dureeMinutes, String lieu, List<String> participants) {
         super(EventType.REUNION, title, proprietaire, date, dureeMinutes);

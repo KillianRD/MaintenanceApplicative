@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
-    private List<User> users;
+    private final List<User> users;
     private User currentUser;
 
     public UserManager() {

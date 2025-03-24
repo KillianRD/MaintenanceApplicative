@@ -5,7 +5,7 @@ import com.mycalendar.service.UserManager;
 import com.mycalendar.ui.ConsoleUI;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main() {
         CalendarManager calendarManager = new CalendarManager();
         UserManager userManager = new UserManager();
 
