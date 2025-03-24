@@ -1,4 +1,4 @@
-package com.mycalendar.main;
+package com.mycalendar.model.main;
 
 public record Titre(String title) {
     public Titre {

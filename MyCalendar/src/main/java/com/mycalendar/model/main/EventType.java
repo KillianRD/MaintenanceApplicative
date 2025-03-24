@@ -1,4 +1,4 @@
-package com.mycalendar.event;
+package com.mycalendar.model.main;
 
 public enum EventType {
     RDV_PERSONNEL,
