@@ -22,7 +22,7 @@ public class Reunion extends Event {
 
     @Override
     public String description() {
-        return "Réunion : " + title + " à " + lieu + " avec "
+        return "Réunion : " + title.title() + " à " + lieu + " avec "
                 + String.join(", ", participants);
     }
 

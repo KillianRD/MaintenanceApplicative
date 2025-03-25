@@ -37,7 +37,8 @@ public class ActionFactory {
         mainActions.put("2", new AddPersonalEventAction(calendarManager, userManager, scanner));
         mainActions.put("3", new AddMeetingAction(calendarManager, userManager, scanner));
         mainActions.put("4", new AddPeriodicEventAction(calendarManager, userManager, scanner));
-        mainActions.put("5", new LogoutAction(userManager));
+        mainActions.put("5", new AddZoomAction(calendarManager, userManager, scanner));
+        mainActions.put("6", new LogoutAction(userManager));
 
         // View events sub-menu actions
         viewActions.put("1", new ViewAllEventsAction(calendarManager));

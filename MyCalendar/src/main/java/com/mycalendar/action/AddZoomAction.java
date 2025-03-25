@@ -1,6 +1,7 @@
 package com.mycalendar.action;
 
 import com.mycalendar.model.Reunion;
+import com.mycalendar.model.Zoom;
 import com.mycalendar.model.main.Date;
 import com.mycalendar.model.main.DureeEvent;
 import com.mycalendar.model.main.Proprietaire;
@@ -13,12 +14,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddMeetingAction implements Action {
+public class AddZoomAction implements Action {
     private final CalendarManager calendarManager;
     private final UserManager userManager;
     private final Scanner scanner;
 
-    public AddMeetingAction(CalendarManager calendarManager, UserManager userManager, Scanner scanner) {
+    public AddZoomAction(CalendarManager calendarManager, UserManager userManager, Scanner scanner) {
         this.calendarManager = calendarManager;
         this.userManager = userManager;
         this.scanner = scanner;
@@ -35,16 +36,15 @@ public class AddMeetingAction implements Action {
         int heure = InputValidator.readInt(scanner, "Heure début (0-23) : ", 0, 23);
         int minute = InputValidator.readInt(scanner, "Minute début (0-59) : ", 0, 59);
         int duree = InputValidator.readInt(scanner, "Durée (en minutes) : ", 1, 1440);
-        String lieu = InputValidator.readNonEmptyString(scanner, "lieu");
+        String lienZoom = InputValidator.readNonEmptyString(scanner, "Lien de la réunion");
 
         calendarManager.ajouterEvent(
-                new Reunion(
+                new Zoom(
                         new Titre(titre),
                         new Proprietaire(userManager.getCurrentUser().getUsername()),
                         new Date(LocalDateTime.of(annee, mois, jour, heure, minute), duree),
                         new DureeEvent(duree),
-                        lieu,
-                        List.of(userManager.getCurrentUser().getUsername())
+                        lienZoom
                 )
         );
 
@@ -53,6 +53,6 @@ public class AddMeetingAction implements Action {
 
     @Override
     public String getDescription() {
-        return "Ajouter d'une réunion";
+        return "Ajouter une conférence zoom";
     }
 }

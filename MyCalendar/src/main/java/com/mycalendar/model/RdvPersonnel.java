@@ -15,7 +15,7 @@ public class RdvPersonnel extends Event {
 
     @Override
     public String description() {
-        return "RDV : " + title + " à " + date.start().toString();
+        return "RDV : " + title.title() + " à " + date.start().toString();
     }
 
     @Override
