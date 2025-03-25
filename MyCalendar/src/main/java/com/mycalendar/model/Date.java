@@ -1,4 +1,4 @@
-package com.mycalendar.model.main;
+package com.mycalendar.model;
 
 import java.time.LocalDateTime;
 

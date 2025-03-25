@@ -1,11 +1,5 @@
 package com.mycalendar.model;
 
-import com.mycalendar.model.main.EventType;
-import com.mycalendar.model.main.Date;
-import com.mycalendar.model.main.DureeEvent;
-import com.mycalendar.model.main.Proprietaire;
-import com.mycalendar.model.main.Titre;
-
 import java.time.LocalDateTime;
 
 public class Periodique extends Event {

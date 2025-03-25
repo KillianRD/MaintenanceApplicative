@@ -1,6 +1,4 @@
-package com.mycalendar.model.main;
-
-import com.mycalendar.model.Event;
+package com.mycalendar.model;
 
 import java.util.ArrayList;
 import java.util.List;

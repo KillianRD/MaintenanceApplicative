@@ -1,10 +1,10 @@
 package com.mycalendar.action;
 
 import com.mycalendar.model.RdvPersonnel;
-import com.mycalendar.model.main.Date;
-import com.mycalendar.model.main.DureeEvent;
-import com.mycalendar.model.main.Proprietaire;
-import com.mycalendar.model.main.Titre;
+import com.mycalendar.model.Date;
+import com.mycalendar.model.DureeEvent;
+import com.mycalendar.model.Proprietaire;
+import com.mycalendar.model.Titre;
 import com.mycalendar.service.CalendarManager;
 import com.mycalendar.service.UserManager;
 import com.mycalendar.utils.InputValidator;

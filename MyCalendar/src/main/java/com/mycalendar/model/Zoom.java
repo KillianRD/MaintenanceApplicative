@@ -1,7 +1,5 @@
 package com.mycalendar.model;
 
-import com.mycalendar.model.main.*;
-
 import java.time.LocalDateTime;
 
 public class Zoom extends Event {

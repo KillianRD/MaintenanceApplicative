@@ -1,4 +1,4 @@
-package com.mycalendar.model.main;
+package com.mycalendar.model;
 
 public record Proprietaire(String name) {
     public Proprietaire {
